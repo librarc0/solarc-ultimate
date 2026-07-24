@@ -34,6 +34,15 @@ English summary: SolArc-Ultimate is an open-source ultimate frisbee team managem
 - Mini-program: uni-app, Vue, Pinia.
 - Tooling: uv, npm, Docker Compose, pytest, ruff, GitHub Actions.
 
+## 线上参考部署
+
+可以通过当前线上版本了解最终部署后的使用效果和主要功能：
+
+- Web 网站：<https://eaglepower.xin/>
+- 微信小程序：搜索 **个人飞盘评分系统**
+
+线上版本主要用于体验产品形态、移动端交互、排行榜、比赛录入和小程序访问流程。开源仓库不包含线上服务器配置、生产数据库、真实队伍数据或微信小程序密钥；本地运行请使用下面的 Docker / 本地开发步骤和虚构 demo 数据。
+
 ## 最快体验：Docker
 
 准备环境：
