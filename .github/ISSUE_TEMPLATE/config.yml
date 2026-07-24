@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Security policy
+    url: https://github.com/librarc0/solarc-ultimate/blob/main/SECURITY.md
+    about: Please do not report security issues in public issues.

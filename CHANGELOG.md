@@ -1,5 +1,51 @@
 # Changelog
 
+## v0.9.8-open-source.2
+
+开源发布工程补强版本。该版本在首个开源源码基础上补齐 GitHub Release 自动化、Docker 镜像发布和部署文档。
+
+### 新增内容
+
+- GitHub tag 触发的 release workflow。
+- Release 自动上传：
+  - `solarc-ultimate-source-<tag>.zip`
+  - `solarc-ultimate-web-<tag>.zip`
+  - `solarc-ultimate-mp-weixin-<tag>.zip`
+  - `solarc-rating-engine-<tag>.zip`
+- 自动构建并推送 GHCR 镜像：
+  - `ghcr.io/librarc0/solarc-ultimate-backend:<tag>`
+  - `ghcr.io/librarc0/solarc-ultimate-frontend:<tag>`
+- `docker-compose.images.yml`，用于直接拉取 release 镜像部署。
+- `docs/deployment.md`，包含源码构建部署、镜像部署、备份、升级和生产检查清单。
+- Issue templates、PR template、Code of Conduct。
+
+### Docker 镜像部署
+
+```bash
+git clone https://github.com/librarc0/solarc-ultimate.git
+cd solarc-ultimate
+copy .env.example .env
+set SOLARC_VERSION=v0.9.8-open-source.2
+docker compose -f docker-compose.images.yml up -d
+docker compose -f docker-compose.images.yml exec backend python scripts/seed_demo.py
+```
+
+访问：
+
+```text
+http://localhost:8080
+```
+
+### 源码构建部署
+
+```bash
+git clone https://github.com/librarc0/solarc-ultimate.git
+cd solarc-ultimate
+copy .env.example .env
+docker compose up --build -d
+docker compose exec backend python scripts/seed_demo.py
+```
+
 ## v0.9.8-open-source.1
 
 首个脱敏开源版本。该版本用于公开评估、二次开发和自部署体验，不包含线上生产配置、真实队伍数据、真实导出文件、备案材料或私有部署记录。

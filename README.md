@@ -45,7 +45,7 @@ English summary: SolArc-Ultimate is an open-source ultimate frisbee team managem
 
 ## 版本发布
 
-建议优先使用 GitHub Releases / Tags 中的稳定版本，而不是直接依赖随时变化的 `main` 分支。首个开源版本为 `v0.9.8-open-source.1`，版本内容和 Docker 部署说明见 `CHANGELOG.md`。
+建议优先使用 GitHub Releases / Tags 中的稳定版本，而不是直接依赖随时变化的 `main` 分支。当前开源发布版本为 `v0.9.8-open-source.2`，版本内容、打包产物和 Docker 部署说明见 `CHANGELOG.md`。
 
 ## 最快体验：Docker
 
@@ -71,6 +71,17 @@ http://localhost:8080
 ```
 
 后端容器启动时会自动执行数据库迁移。`seed_demo.py` 只写入虚构数据；如果 demo 队伍已存在，会自动跳过，不会重复污染数据。
+
+如果不想在服务器上本地构建镜像，也可以使用 release 自动发布到 GHCR 的预构建镜像：
+
+```bash
+copy .env.example .env
+set SOLARC_VERSION=v0.9.8-open-source.2
+docker compose -f docker-compose.images.yml up -d
+docker compose -f docker-compose.images.yml exec backend python scripts/seed_demo.py
+```
+
+更多部署、备份和升级说明见 `docs/deployment.md`。
 
 ## 本地开发运行
 

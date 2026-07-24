@@ -1,0 +1,110 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+  packages: write
+
+env:
+  REGISTRY: ghcr.io
+  BACKEND_IMAGE: ghcr.io/${{ github.repository_owner }}/solarc-ultimate-backend
+  FRONTEND_IMAGE: ghcr.io/${{ github.repository_owner }}/solarc-ultimate-frontend
+
+jobs:
+  release-assets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            frontend/package-lock.json
+            miniprogram/package-lock.json
+
+      - name: Build web frontend
+        working-directory: frontend
+        run: |
+          npm ci
+          npm run type-check
+          npm run build
+          cd dist
+          zip -r ../../solarc-ultimate-web-${{ github.ref_name }}.zip .
+
+      - name: Build WeChat mini-program
+        working-directory: miniprogram
+        run: |
+          npm ci
+          npm run type-check
+          npm run build:mp-weixin
+          cd dist/build/mp-weixin
+          zip -r ../../../../solarc-ultimate-mp-weixin-${{ github.ref_name }}.zip .
+
+      - name: Package source and rating engine
+        run: |
+          git archive --format=zip --output=solarc-ultimate-source-${{ github.ref_name }}.zip HEAD
+          zip -r solarc-rating-engine-${{ github.ref_name }}.zip \
+            backend/app/rating_engine \
+            backend/scripts/rating_cli.py \
+            backend/examples/rating_match.json
+
+      - name: Extract release notes
+        shell: bash
+        run: |
+          awk '
+            $0 == "## ${{ github.ref_name }}" { capture=1; next }
+            capture && /^## / { exit }
+            capture { print }
+          ' CHANGELOG.md > RELEASE_NOTES.md
+          if [ ! -s RELEASE_NOTES.md ]; then
+            cat CHANGELOG.md > RELEASE_NOTES.md
+          fi
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          body_path: RELEASE_NOTES.md
+          files: |
+            solarc-ultimate-source-${{ github.ref_name }}.zip
+            solarc-ultimate-web-${{ github.ref_name }}.zip
+            solarc-ultimate-mp-weixin-${{ github.ref_name }}.zip
+            solarc-rating-engine-${{ github.ref_name }}.zip
+
+  docker-images:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: docker/setup-buildx-action@v3
+
+      - uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push backend image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: backend/Dockerfile
+          push: true
+          tags: |
+            ${{ env.BACKEND_IMAGE }}:${{ github.ref_name }}
+            ${{ env.BACKEND_IMAGE }}:latest
+
+      - name: Build and push frontend image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: frontend/Dockerfile
+          push: true
+          tags: |
+            ${{ env.FRONTEND_IMAGE }}:${{ github.ref_name }}
+            ${{ env.FRONTEND_IMAGE }}:latest

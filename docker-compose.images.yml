@@ -1,8 +1,6 @@
 services:
   backend:
-    build:
-      context: .
-      dockerfile: ./backend/Dockerfile
+    image: ghcr.io/librarc0/solarc-ultimate-backend:${SOLARC_VERSION:-v0.9.8-open-source.2}
     volumes:
       - solarc_data:/app/data
       - solarc_docs:/app/docs/doc
@@ -28,9 +26,7 @@ services:
     restart: unless-stopped
 
   frontend:
-    build:
-      context: .
-      dockerfile: ./frontend/Dockerfile
+    image: ghcr.io/librarc0/solarc-ultimate-frontend:${SOLARC_VERSION:-v0.9.8-open-source.2}
     ports:
       - "8080:80"
     depends_on:
