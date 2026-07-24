@@ -1,0 +1,32 @@
+@import './base.css';
+
+#app {
+  font-weight: normal;
+  /* T088: iPhone safe area adaptation */
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* T088: page containers safe area */
+.rankings-page,
+.profile-page,
+.match-input-page,
+.match-list-page,
+.match-detail-page,
+.team-page,
+.admin-page {
+  padding-bottom: calc(50px + env(safe-area-inset-bottom));
+}
+
+a,
+.green {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+  padding: 3px;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
+  }
+}

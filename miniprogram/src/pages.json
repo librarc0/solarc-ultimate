@@ -1,0 +1,145 @@
+﻿{
+  "pages": [
+    {
+      "path": "pages/login/index",
+      "style": {
+        "navigationBarTitleText": "登录",
+        "navigationBarBackgroundColor": "#1a1a2e",
+        "navigationBarTextStyle": "white",
+        "backgroundColor": "#1a1a2e"
+      }
+    },
+    {
+      "path": "pages/bind/index",
+      "style": {
+        "navigationBarTitleText": "绑定账号",
+        "navigationBarBackgroundColor": "#1a1a2e",
+        "navigationBarTextStyle": "white",
+        "backgroundColor": "#1a1a2e"
+      }
+    },
+    {
+      "path": "pages/home/index",
+      "style": {
+        "navigationBarTitleText": "首页",
+        "navigationBarBackgroundColor": "#07111f",
+        "navigationBarTextStyle": "white",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/rankings/index",
+      "style": {
+        "navigationBarTitleText": "排行榜",
+        "navigationBarBackgroundColor": "#07111f",
+        "navigationBarTextStyle": "white",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/public-rankings/index",
+      "style": {
+        "navigationBarTitleText": "联盟排行榜",
+        "navigationBarBackgroundColor": "#07111f",
+        "navigationBarTextStyle": "white",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/rankings/detail",
+      "style": {
+        "navigationBarTitleText": "队伍详情",
+        "navigationBarBackgroundColor": "#07111f",
+        "navigationBarTextStyle": "white",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/matches/index",
+      "style": {
+        "navigationBarTitleText": "比赛",
+        "navigationBarBackgroundColor": "#07111f",
+        "navigationBarTextStyle": "white",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/matches/detail",
+      "style": {
+        "navigationBarTitleText": "比赛详情",
+        "navigationBarBackgroundColor": "#07111f",
+        "navigationBarTextStyle": "white",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/schedule/index",
+      "style": {
+        "navigationBarTitleText": "日程",
+        "navigationBarBackgroundColor": "#07111f",
+        "navigationBarTextStyle": "white",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/schedule/detail",
+      "style": {
+        "navigationBarTitleText": "日程详情",
+        "navigationBarBackgroundColor": "#07111f",
+        "navigationBarTextStyle": "white",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/docs/index",
+      "style": {
+        "navigationBarTitleText": "规则与手册",
+        "navigationBarBackgroundColor": "#07111f",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/profile/index",
+      "style": {
+        "navigationBarTitleText": "我的",
+        "navigationBarBackgroundColor": "#07111f",
+        "navigationBarTextStyle": "white",
+        "enablePullDownRefresh": true
+      }
+    }
+  ],
+  "tabBar": {
+    "color": "#94a3b8",
+    "selectedColor": "#0ea5e9",
+    "backgroundColor": "#0f172a",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/rankings/index",
+        "text": "排行榜"
+      },
+      {
+        "pagePath": "pages/matches/index",
+        "text": "比赛"
+      },
+      {
+        "pagePath": "pages/schedule/index",
+        "text": "日程"
+      },
+      {
+        "pagePath": "pages/profile/index",
+        "text": "我的"
+      }
+    ]
+  },
+  "globalStyle": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "EaglesPower",
+    "navigationBarBackgroundColor": "#1a1a2e",
+    "backgroundColor": "#1a1a2e"
+  }
+}

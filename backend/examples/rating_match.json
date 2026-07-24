@@ -1,0 +1,16 @@
+{
+  "match_type": "internal",
+  "data_level": 3,
+  "team_a_score": 9,
+  "team_b_score": 7,
+  "team_a": [
+    { "player_id": 1, "mu": 25.0, "sigma": 8.333, "goals": 4, "assists": 2, "defenses": 1 },
+    { "player_id": 2, "mu": 25.0, "sigma": 8.333, "goals": 2, "assists": 4, "defenses": 0 },
+    { "player_id": 3, "mu": 25.0, "sigma": 8.333, "goals": 3, "assists": 0, "defenses": 3 }
+  ],
+  "team_b": [
+    { "player_id": 4, "mu": 25.0, "sigma": 8.333, "goals": 3, "assists": 2, "defenses": 0 },
+    { "player_id": 5, "mu": 25.0, "sigma": 8.333, "goals": 2, "assists": 3, "defenses": 2 },
+    { "player_id": 6, "mu": 25.0, "sigma": 8.333, "goals": 2, "assists": 0, "defenses": 1 }
+  ]
+}

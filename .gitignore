@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.pytest_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Node
+node_modules/
+dist/
+build/
+coverage/
+test-results/
+playwright-report/
+
+# Runtime data
+.env
+*.env.local
+*.env.production
+*.db
+*.db-*
+data/
+uploads/
+
+# Archives and local packages
+*.tar
+*.tar.gz
+*.zip
+*.7z
+*.rar
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

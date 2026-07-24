@@ -1,0 +1,17 @@
+﻿{
+  "name": "SolArc-Ultimate 战力榜",
+  "short_name": "SolArc-Ultimate",
+  "description": "极限飞盘队伍管理&战力评分系统",
+  "start_url": "/rankings",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1989fa",
+  "lang": "zh-CN",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}

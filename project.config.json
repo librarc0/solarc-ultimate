@@ -1,0 +1,11 @@
+{
+  "setting": {
+    "es6": true,
+    "postcss": true,
+    "minified": true
+  },
+  "compileType": "miniprogram",
+  "appid": "touristappid",
+  "projectname": "solarc-ultimate",
+  "editorSetting": {}
+}

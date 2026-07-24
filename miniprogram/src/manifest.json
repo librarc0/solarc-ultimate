@@ -1,0 +1,44 @@
+{
+  "name": "EaglesPower 飞盘",
+  "appid": "touristappid",
+  "description": "飞盘队伍管理与战力评分系统",
+  "versionName": "0.9.8",
+  "versionCode": "100",
+  "transformPx": false,
+  "mp-weixin": {
+    "appid": "touristappid",
+    "setting": {
+      "urlCheck": false,
+      "es6": true,
+      "postcss": true,
+      "minified": true
+    },
+    "usingComponents": true,
+    "requiredBackgroundModes": [],
+    "lazyCodeLoading": "requiredComponents"
+  },
+  "quickapp": {},
+  "app-plus": {
+    "usingComponents": true,
+    "nvueStyleCompiler": "uni-compiler",
+    "compilerVersion": 3,
+    "splashscreen": {
+      "alwaysShowBeforeRender": true,
+      "waiting": true,
+      "autoclose": true,
+      "delay": 0
+    },
+    "modules": {},
+    "distribute": {
+      "android": {},
+      "ios": {},
+      "sdkConfigs": {}
+    }
+  },
+  "h5": {
+    "router": {
+      "mode": "history"
+    }
+  }
+}
+
