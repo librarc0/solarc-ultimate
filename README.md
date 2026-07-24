@@ -43,6 +43,10 @@ English summary: SolArc-Ultimate is an open-source ultimate frisbee team managem
 
 线上版本主要用于体验产品形态、移动端交互、排行榜、比赛录入和小程序访问流程。开源仓库不包含线上服务器配置、生产数据库、真实队伍数据或微信小程序密钥；本地运行请使用下面的 Docker / 本地开发步骤和虚构 demo 数据。
 
+## 版本发布
+
+建议优先使用 GitHub Releases / Tags 中的稳定版本，而不是直接依赖随时变化的 `main` 分支。首个开源版本为 `v0.9.8-open-source.1`，版本内容和 Docker 部署说明见 `CHANGELOG.md`。
+
 ## 最快体验：Docker
 
 准备环境：
